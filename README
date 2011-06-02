@@ -1,0 +1,29 @@
+mod_delete_file 0.0.1
+
+This module adds DELETE handler for normal file.
+
+To install:
+  # (apxs|spxs2) -ci mod_delete_file.c
+
+To enable this module:
+  For example, see delete_file.conf for CentOS.
+
+  - Delete file by this module.
+  $ curl localhost/target-file -X DELETE -D -
+  HTTP/1.1 200 OK
+  Date: Thu, 02 Jun 2011 02:05:01 GMT
+  Server: Apache/2.2.3 (CentOS)
+  Content-Length: 10
+  Connection: close
+  Content-Type: text/plain; charset=UTF-8
+
+  Deleted.
+
+
+  $ curl localhost/not-exist-file -X DELETE -D -
+  HTTP/1.1 404 Not Found
+  Date: Thu, 02 Jun 2011 02:05:04 GMT
+  Server: Apache/2.2.3 (CentOS)
+  Content-Length: 300
+  Connection: close
+  Content-Type: text/html; charset=iso-8859-1
